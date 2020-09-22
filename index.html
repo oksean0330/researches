@@ -16,6 +16,7 @@
   <link href="css/heroic-features.css" rel="stylesheet">
 
   <link rel="stylesheet" type="text/css" href="css/KoPubDotum.css">
+
   <style> 
   body { font-family: 'KoPub Dotum'; font-weight: 400; } 
   p { font-family: 'KoPub Dotum'; font-weight: 300; }
@@ -28,6 +29,18 @@
   }
   
   </style>
+  <script>
+    function openmotifi(){
+    $("#modalmotifi").modal();
+    }
+
+    function changemotifi(){
+      var percent = document.getElementById("petcentnum");
+      var a = document.getElementById("ddmenu").value;
+      alert(a);
+    }
+  </script>
+
 
 
 </head>
@@ -38,19 +51,6 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#" >창의융합과제연구</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">연구자 : 김동현, 이준성, 황재민
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          </li>
-        </ul>
-      </div>
     </div>
   </nav>
 
@@ -58,19 +58,34 @@
   <div class="container">
 
     <!-- Jumbotron Header -->
-    <header class="jumbotron my-4" style="background-image: url(https://cdn.pixabay.com/photo/2015/03/26/09/41/mountain-690104_1280.jpg)"; background-size: 100%;">
+    <header class="jumbotron my-4" style="background-image: url(https://cdn.pixabay.com/photo/2015/03/26/09/41/mountain-690104_1280.jpg); background-size: cover;">
       <h1 class="display-3" style="color:white">창의융합과제연구 관리 페이지</h1>
       <p class="lead" style="color:white">경기고등학교 소속 '진자로 진자 맞아보자' 팀의 이중진자 과제연구 관리 홈페이지 입니다.</p>
+      <div class="alert alert-light">
+        <h3 style="color:lightslategray">완성까지 남은 정도</h3>
+        
+        <div class="progress" style="height: 25px;">
+          <div class="progress-bar bg-warning" id="bar" role="progressbar"style="width:0%;" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">36%</div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>0%</div>
+          <div>100%</div>
+        </div>
+        <script>
+          window.onload=function pgbar(){
+            document.getElementById('bar').style="width:36%"
+          }
+      </script>
     </header>
 
     <!-- Page Features -->
+    
     <div class="row text-center">
-
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
           <img class="card-img-top" src="img/googledocs.png" alt="">
           <div class="card-img-overlay">
-            <h4><br><br><br><span class="badge badge-secondary">0%</span></h4></div>
+            <h4><br><br><br><span class="badge badge-secondary" id="finaldoc">0%</span></h4></div>
           <div class="card-body">
             <h4 class="card-title">최종보고서</h4>
             <p class="card-text">최종 제출 보고서가 될 예정입니다. 준비중.</p>
@@ -80,7 +95,7 @@
           </div>
         </div>
       </div>
-
+      
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
           <img class="card-img-top" src="img/googledocs.png" alt="">
@@ -126,12 +141,20 @@
           </div>
         </div>
       </div>
-      
+    </div>
+    <br><br>
+    <div class="row text-center">
+      <div class="col-lg-4 h-100 text-center text-lg-left my-auto text-white"><hr></div>
+      <div class="col-lg-4 h-100 text-center text-lg-center my-auto"><h3>보고서 목록</h3></div>
+      <div class="col-lg-4 h-100 text-center text-lg-left my-auto text-white"><hr></div>
+    </div><br><br>
+    
+    <div class="row text-center">
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
           <img class="card-img-top" src="img/googledocs.png" alt="">
           <div class="card-img-overlay">
-            <h4><br><br><br><span class="badge badge-secondary">0%</span></h4></div>
+            <h4><br><br><br><span class="badge badge-secondary" id="1doc">0%</span></h4></div>
           <div class="card-body">
             <h4 class="card-title">1회차 보고서</h4>
             <p class="card-text">세부 계획서를 작성하는 과정이 담겨있습니다.</p>
@@ -146,7 +169,7 @@
         <div class="card h-100">
           <img class="card-img-top" src="img/googledocs.png" alt="">
           <div class="card-img-overlay">
-            <h4><br><br><br><span class="badge badge-success">완료</span></h4></div>
+            <h4><br><br><br><span class="badge badge-success" id="2doc">완료</span></h4></div>
           <div class="card-body">
             <h4 class="card-title">2회차 보고서</h4>
             <p class="card-text">3D 모델링 및 설계를 진행하는 내용이 담겨있습니다.</p>
@@ -161,7 +184,7 @@
         <div class="card h-100">
           <img class="card-img-top" src="img/googledocs.png" alt="">
           <div class="card-img-overlay">
-            <h4><br><br><br><span class="badge badge-primary">75%</span></h4></div>
+            <h4><br><br><br><span class="badge badge-primary" id="3doc">75%</span></h4></div>
           <div class="card-body">
             <h4 class="card-title">3회차 보고서</h4>
             <p class="card-text">진자를 제작하는 과정이 담겨있습니다. (1)</p>
@@ -176,7 +199,7 @@
         <div class="card h-100">
           <img class="card-img-top" src="img/googledocs.png" alt="">
           <div class="card-img-overlay">
-            <h4><br><br><br><span class="badge badge-warning">50%</span></h4></div>
+            <h4><br><br><br><span class="badge badge-warning" id="4doc">50%</span></h4></div>
           <div class="card-body">
             <h4 class="card-title">4회차 보고서</h4>
             <p class="card-text">진자를 제작하는 과정이 담겨있습니다. (2)</p>
@@ -190,7 +213,7 @@
         <div class="card h-100">
           <img class="card-img-top" src="img/googledocs.png" alt="">
           <div class="card-img-overlay">
-            <h4><br><br><br><span class="badge badge-warning">50%</span></h4></div>
+            <h4><br><br><br><span class="badge badge-warning" id="5doc">50%</span></h4></div>
           <div class="card-body">
             <h4 class="card-title">5회차 보고서</h4>
             <p class="card-text">진자를 완성하여 운영해보는 과정이 담겨있습니다.</p>
@@ -205,7 +228,7 @@
         <div class="card h-100">
           <img class="card-img-top" src="img/googledocs.png" alt="">
           <div class="card-img-overlay">
-            <h4><br><br><br><span class="badge badge-danger">20%</span></h4></div>
+            <h4><br><br><br><span class="badge badge-danger" id="6doc">20%</span></h4></div>
           <div class="card-body">
             <h4 class="card-title">6회차 보고서</h4>
             <p class="card-text">이중진자를 실험해보는 과정이 담겨있습니다.</p>
@@ -222,7 +245,7 @@
           <div class="card-body">
             <h4 class="card-title">7회차 보고서</h4>
             <div class="card-img-overlay">
-              <h4><br><br><br><span class="badge badge-secondary">0%</span></h4></div>
+              <h4><br><br><br><span class="badge badge-secondary" id="7doc">0%</span></h4></div>
             <p class="card-text">실험에서 얻은 정보로 규칙을 찾는 과정이 담겨있습니다. (LED)</p>
           </div>
           <div class="card-footer">
@@ -237,7 +260,7 @@
           <div class="card-body">
             <h4 class="card-title">8회차 보고서</h4>
             <div class="card-img-overlay">
-              <h4><br><br><br><span class="badge badge-secondary">0%</span></h4></div>
+              <h4><br><br><br><span class="badge badge-secondary" id="8doc">0%</span></h4></div>
             <p class="card-text">프로세싱을 이용해 진자의 위치를 시뮬레이팅하는 프로그램을 만드는 과정이 담겨있습니다.</p>
           </div>
           <div class="card-footer">
@@ -252,7 +275,7 @@
           <div class="card-body">
             <h4 class="card-title">9회차 보고서</h4>
             <div class="card-img-overlay">
-              <h4><br><br><br><span class="badge badge-warning">50%</span></h4></div>
+              <h4><br><br><br><span class="badge badge-warning" id="9doc">50%</span></h4></div>
             <p class="card-text">라그랑주 운동방정식의 활용(1)</p>
           </div>
           <div class="card-footer">
@@ -265,7 +288,7 @@
         <div class="card h-100">
           <img class="card-img-top" src="img/googledocs.png" alt="">
           <div class="card-img-overlay">
-            <h4><br><br><br><span class="badge badge-secondary">0%</span></h4></div>
+            <h4><br><br><br><span class="badge badge-secondary" id="10doc">0%</span></h4></div>
           <div class="card-body">
             <h4 class="card-title">10회차 보고서</h4>
             <p class="card-text">라그랑주 운동방정식의 활용(2)</p>
@@ -280,7 +303,7 @@
         <div class="card h-100">
           <img class="card-img-top" src="img/googledocs.png" alt="">
           <div class="card-img-overlay">
-            <h4><br><br><br><span class="badge badge-secondary">0%</span></h4></div>
+            <h4><br><br><br><span class="badge badge-secondary" id="11doc">0%</span></h4></div>
           <div class="card-body">
             <h4 class="card-title">11회차 보고서</h4>
             <p class="card-text">최종보고서를 작성하는 과정이 담겨있습니다.</p>
@@ -295,7 +318,7 @@
         <div class="card h-100">
           <img class="card-img-top" src="img/googledocs.png" alt="">
             <div class="card-img-overlay">
-              <h4><br><br><br><span class="badge badge-secondary">0%</span></h4></div>
+              <h4><br><br><br><span class="badge badge-secondary" id="12doc">0%</span></h4></div>
           <div class="card-body">
             <h4 class="card-title">12회차 보고서</h4>
             <p class="card-text">마무리하는 과정이 담겨있습니다.</p>
@@ -316,10 +339,12 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; 진자로진자맞아보자</p>
+      <div class="row">
+      <p class="col-lg-6 h-100 text-center text-lg-left my-auto text-white">Copyright &copy; 진자로진자맞아보자<br>연구자 : 김동현, 이준성, 황재민<br>관리 페이지 웹개발 : 김동현</p>
     </div>
     <!-- /.container -->
   </footer>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
